@@ -1,3 +1,7 @@
+//Link : https://leetcode.com/problems/merge-intervals/
+
+//Given a collection of intervals, merge all overlapping intervals.
+
 vector<vector<int>> merge(vector<vector<int>>& interval) {
         sort(interval.begin(),interval.end());
         vector<vector<int>> temp;
