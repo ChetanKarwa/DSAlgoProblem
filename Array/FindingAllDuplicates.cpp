@@ -1,3 +1,6 @@
+//Link - https://leetcode.com/problems/find-all-duplicates-in-an-array/
+
+
 /*Given an array of integers, 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
 Find all the elements that appear twice in this array.
  Find all duplicates in o(1) space and o(n) time*/
