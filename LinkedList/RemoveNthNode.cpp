@@ -4,7 +4,6 @@
 
 Ques : Given a linked list, remove the n-th node from the end of list and return its head.
 
-
  * Definition for singly-linked list.
  * struct ListNode {
  *     int val;
