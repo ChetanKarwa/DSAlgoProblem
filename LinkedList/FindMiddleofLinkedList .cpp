@@ -15,14 +15,15 @@ Ques : Middle of the Linked List.
  *};
 */
 
-ListNode* reverseList(ListNode* head) {
-    ListNode* prevHead = nullptr;
-    while(head!=nullptr)
+ListNode* middleNode(ListNode* head) {
+    ListNode* temp = head;
+    while(1)
     {
-        ListNode* nextHead = head->next;
-        head->next = prevHead;
-        prevHead  = head;
-        head = nextHead;
+        if(temp->next==nullptr)
+            return head;
+        if(temp->next->next==nullptr)
+            return head->next;
+        temp = temp->next->next;
+        head = head->next;
     }
-    return prevHead;
 }
