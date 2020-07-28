@@ -1,49 +1,42 @@
 // Link:
 
 /*
-Reverse a singly linked list.
+Write a program to find the node at which the intersection of two singly linked lists begins.
+
+If the two linked lists have no intersection at all, return null.
+The linked lists must retain their original structure after the function returns.
+You may assume there are no cycles anywhere in the entire linked structure.
+Each value on each linked list is in the range [1, 10^9].
+Your code should preferably run in O(n) time and use only O(1) memory.
 */
 
-
+/*
+Reverse a singly linked list.
+*/
 /**
  * Definition for singly-linked list.
-  struct ListNode {
+ * struct ListNode {
  *     int val;
  *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
-
-
- ///////////////////////// ITERATIVELY  ///////////////////////////
-
 class Solution {
 public:
-    ListNode* reverseList(ListNode* head) {
-        ListNode* prevHead = nullptr;
-        while(head!=nullptr)
-        {
-            ListNode* nextHead = head->next;
-            head->next = prevHead;
-            prevHead  = head;
-            head = nextHead;
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        
+        ListNode *p1 = headA;
+        ListNode *p2 = headB;
+        
+        if (p1 == NULL || p2 == NULL) return NULL;
+
+        while (p1 != NULL && p2 != NULL && p1 != p2) {
+            p1 = p1->next;
+            p2 = p2->next;
+            if (p1 == p2) return p1;
+            if (p1 == NULL) p1 = headB;
+            if (p2 == NULL) p2 = headA;
         }
-        return prevHead;
-    }
-};
-
-///////////////////////// Recursively  ////////////////////////////
-
-class Solution {
-public:
-    ListNode* reverseList(ListNode* head) {
-        if(head == nullptr||head->next == nullptr)
-            return head;
-        ListNode* p = reverseList(head->next);
-        head->next->next = head;
-        head->next = nullptr;
-        return p;
+            return p1;
     }
 };
